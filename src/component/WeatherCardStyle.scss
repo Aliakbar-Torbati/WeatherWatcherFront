@@ -1,0 +1,38 @@
+.card-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 10px;
+    width: 90%;
+    height: 100%;
+    padding: 10px;
+}
+.time-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.details-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+.temp-icon-container{
+    display: flex;
+    flex-direction: row;
+    & img{
+        width: 80%;
+    }
+}
+.details{
+    width: 50%;
+}
+.temp{
+    align-items: center;
+    align-self: center;
+}
+.left-container{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around;
+}

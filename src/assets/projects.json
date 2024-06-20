@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Expense Tracker Website",
+    "image":"https://front-cdn.mobiroller.com/wp-content/uploads/MR-011116-reklamla-para-kazanma-300.jpg",
+    "description": "An application with JavaScript technologies to facilitate the creation of full-stack web applications (MERN Stack). Users can simply manage their finances with this application. They can effortlessly record their expenses, incomes, and other financial transactions, enabling them to maintain a clear overview of their financial standing and make informed decisions. Backend : - User Authentication (OAuth 2.0 Access/ Refresh Tokens )",
+    "viewLink":"https://money-mon.netlify.app/",
+    "source":"https://github.com/shaza-kashlan/expenses-tracker-frontend",
+    "source2":"https://github.com/shaza-kashlan/expenses-tracker-backend"
+  },
+  {
+    "title": "Fashion Online Shop",
+    "image":"https://prilaruno.netlify.app/assets/model3-sa6_BOIv.jpg",
+    "description": "This application with React and Fake REST-API is developed as a project in web development bootcamp in Ironhack. It presents Models to advertise different products like dresses , shoes, belts, etc.",
+    "viewLink":"https://prilaruno.netlify.app/",
+    "source":"https://github.com/onurcangulpak/pralionur-front-end",
+    "source2":""
+  },
+  {
+    "title": "Spiderman Game",
+    "image":"https://i.pinimg.com/736x/f6/8e/d7/f68ed73e935e7a908d32bb3c0a22dad7.jpg",
+    "description": "A thrilling 2D game using JavaScript, HTML, and CSS. In this game, player must guide Spiderman through a maze of enemies and obstacles, all while aiming to rack up the highest score possible. It's all about quick reflexes and strategic maneuvering to escape unscathed!",
+    "viewLink":"https://aliakbar-torbati.github.io/Javascript-Game/",
+    "source":"https://github.com/Aliakbar-Torbati/Javascript-Game",
+    "source2":""
+  }
+]

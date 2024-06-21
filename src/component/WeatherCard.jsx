@@ -12,7 +12,7 @@ function WeatherCard() {
 
       try {
         const response = await axios.get(url);
-        console.log("current weather", response.data.data);
+        console.log("current weather", response.data);
         setCurrWeather(response.data.data[0]);
       } catch (error) {
         console.error("Error fetching current weather data:", error);
@@ -27,6 +27,7 @@ function WeatherCard() {
 
   return (
     <>
+    <div className="hour-card-container">
       <div className="card-container">
         <div className="time-container">
           <div><p>CURRENT WEATHER</p></div>
@@ -59,6 +60,7 @@ function WeatherCard() {
             <p>Cloud Cover {currWeather.clouds} %</p>
             </div>
         </div>
+      </div>
       </div>
     </>
   );

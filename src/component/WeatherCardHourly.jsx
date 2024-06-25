@@ -3,12 +3,16 @@ import axios from "axios";
 import t03d from "../assets/t03d.png";
 import { BsDroplet } from "react-icons/bs";
 import "./WeatherCardStyle.scss";
+import CitySearch from "./CitySearch";
+import UserPreference from "./UserPreference";
+
 function WeatherCardHourly() {
   const [hourlyWeather, setHourlyWeather] = useState([]);
+  const [selectedCity, setSelectedCity] = useState('Berlin');
   useEffect(() => {
     const getHourlyWeather = async () => {
       const apiKey = "75d1c38f05454e209edbb4511ed3dd99";
-      const url = `https://api.weatherbit.io/v2.0/forecast/hourly?city=Berlin&key=${apiKey}&hours=24`;
+      const url = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${selectedCity}&key=${apiKey}&hours=24`;
       try {
         const response = await axios.get(url);
         console.log("Hourly Weather Forecast", response.data.data);
@@ -18,14 +22,25 @@ function WeatherCardHourly() {
       }
     };
     getHourlyWeather();
-  }, []);
+  }, [selectedCity]);
 
+  const handleSavePreferences = (preferences) => {
+    console.log('Saving preferences:', preferences);
+    // Here you can save preferences to localStorage, database, etc.
+    // For now, just log them for demonstration
+  };
+  
   if (!hourlyWeather) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
+
+<CitySearch setSelectedCity={setSelectedCity} />
+<UserPreference onSave={handleSavePreferences} />
+<h1>Hourly Weather for {selectedCity}</h1>
+
       <div className="hour-card-container">
         {hourlyWeather.map((hourWeather, i) => {
           return (

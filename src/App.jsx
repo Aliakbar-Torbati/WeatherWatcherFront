@@ -5,15 +5,18 @@ import Contact from './pages/Contact'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 
-function App() {
 
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
+
+function App() {
   return (
     <div className='App'>
       
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about/:userId" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

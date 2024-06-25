@@ -4,6 +4,8 @@ import Intro from '../component/Intro'
 import Footer from '../component/Footer'
 import WeatherCard from '../component/WeatherCard'
 import WeatherCardHourly from '../component/WeatherCardHourly'
+import CitySearch from '../component/CitySearch'
+import UserPreference from '../component/UserPreference'
 
 const Homepage = () => {
   return (

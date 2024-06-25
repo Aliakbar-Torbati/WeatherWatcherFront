@@ -1,0 +1,54 @@
+/* WeatherCardStyle.scss or a new CSS file */
+.user-preference-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #acabab;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-preference-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .user-preference-container label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .user-preference-container input[type="text"],
+  .user-preference-container input[type="number"],
+  .user-preference-container input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .user-preference-container input[type="checkbox"] {
+    margin-bottom: 0;
+  }
+  
+  .user-preference-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-preference-container button:hover {
+    background-color: #0056b3;
+  }
+  

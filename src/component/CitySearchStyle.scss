@@ -1,0 +1,49 @@
+/* WeatherCardStyle.scss or a new CSS file */
+.search-container {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .search-container input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .search-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .search-container ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .search-container ul li:hover {
+    background-color: #f1f1f1;
+  }
+  

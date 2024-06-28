@@ -20,8 +20,8 @@ const firebaseConfig = {
   projectId: "weatherwatcher-f527b",
   storageBucket: "weatherwatcher-f527b.appspot.com",
   messagingSenderId: "248775799591",
-  appId: "1:248775799591:web:755adbf43369324afcef02",
-  measurementId: "G-H840WQGEK1"
+  appId: "1:248775799591:web:26ac4685872c003ffcef02",
+  measurementId: "G-Y2B6ZV0M6R"
 };
 
 // Initialize Firebase

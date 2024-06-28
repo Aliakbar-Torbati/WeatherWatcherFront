@@ -48,19 +48,14 @@ export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 // }
 
 const App=() => {
-  useEffect(() => {
-    onMessage(messaging, (payload) => {
-      console.log("Message received. ", payload);
-      // Show notification in the browser
-      new Notification(payload.notification.title, {
-        body: payload.notification.body,
-      });
-    });
-  }, []);
 
-  const handleClick = () => {
+  useEffect (()=>{
     requestPermission();
-  };
+  },[])
+  // const handleClick = async () => {
+  //   await requestPermission();
+  // };
+
   return (
     <div className="App">
       {/* <Routes>
@@ -71,7 +66,7 @@ const App=() => {
       </Routes> */}
 
       <h1>FCM Demo</h1>
-      <button onClick={handleClick}>Request Notification Permission</button>
+      {/* <button onClick={handleClick}>Request Notification Permission</button> */}
     </div>
   );
 }

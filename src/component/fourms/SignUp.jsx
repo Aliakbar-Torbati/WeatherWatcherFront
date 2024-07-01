@@ -1,8 +1,13 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../App";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth , FirebaseDb } from "../../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
+
 
 export default function SignUp() {
 	const [userName, setUserName] = useState("");
@@ -13,25 +18,40 @@ export default function SignUp() {
 
 	const nav = useNavigate();
 
-	const handleSignup = (event) => {
-		event.preventDefault();
+	const handleSignup = async (e) => {
+		e.preventDefault();
 		// Check if passwords match
 		if (password !== repeatPassword) {
 			alert("Passwords do not match");
 			return;
 		}
-		const userToCreate = { userName, emailAddress, password};
+		try{
+			await createUserWithEmailAndPassword(auth, emailAddress, password)
+			const userToCreate = auth.currentUser;
+			console.log("created user: ",userToCreate);
+			toast.success("You registered successfully!!")
+			if (userToCreate){
+				await setDoc(doc(FirebaseDb, "users", userToCreate.uid), {
+					email: userToCreate.email,
+					userName: userName,
+				})
+			}
+		} catch (error){
+			console.log(error.message);
+			toast.error(error.message, {position:'bottom-center'})
 
-		axios
-			.post(`${API_URL}/register`, userToCreate)
-			.then((response) => {
-				console.log("new user was created", response.data);
-				// nav("/login");
-			})
-			.catch((err) => {
-				console.log("there was an error signing up", err.response.data.message);
-				setError(err.response.data.message);
-			});
+		}
+
+		// axios
+		// 	.post(`${API_URL}/register`, userToCreate)
+		// 	.then((response) => {
+		// 		console.log("new user was created", response.data);
+		// 		// nav("/login");
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log("there was an error signing up", err.response.data.message);
+		// 		setError(err.response.data.message);
+		// 	});
 	};
 	return (
 		<>

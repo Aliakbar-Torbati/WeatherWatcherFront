@@ -8,6 +8,8 @@ import requestPermission from "./requestPermission";
 import React, { useEffect } from "react";
 import { messaging, onMessage } from "./firebaseConfig";
 
+import {ToastContainer} from "react-toastify"; 
+import SignUp from "./component/fourms/SignUp";
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
 // export default class App extends Component {
@@ -58,14 +60,14 @@ const App=() => {
 
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
-      </Routes> */}
-
-      <h1>FCM Demo</h1>
+      </Routes>
+      <ToastContainer />
       {/* <button onClick={handleClick}>Request Notification Permission</button> */}
     </div>
   );

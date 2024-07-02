@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../App";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
 
 export default function SignUp() {
 	const [emailAddress, setEmailAddress] = useState("");
@@ -10,30 +12,23 @@ export default function SignUp() {
 
 	const nav = useNavigate();
 
-	// const handleSignup = (event) => {
-	// 	event.preventDefault();
-	// 	// Check if passwords match
-	// 	if (password !== repeatPassword) {
-	// 		alert("Passwords do not match");
-	// 		return;
-	// 	}
-	// 	const userToCreate = { userName, emailAddress, password};
+	const handleLogIn = async (event) => {
+		event.preventDefault();
+		try{
+			await signInWithEmailAndPassword(auth, emailAddress, password);
+			console.log('user logged in successfully');
+			nav('/dashboard')
+		}catch(error){
+			console.log(error.message);
+			toast.error(error.message, {position:'bottom-center'})
+		}
+	
 
-	// 	axios
-	// 		.post(`${API_URL}/register`, userToCreate)
-	// 		.then((response) => {
-	// 			console.log("new user was created", response.data);
-	// 			// nav("/login");
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log("there was an error signing up", err.response.data.message);
-	// 			setError(err.response.data.message);
-	// 		});
-	// };
+	};
 	return (
 		<>
 			<h2>LogIn here</h2>
-			<form onSubmit={handleSignup} id="signup-form">
+			<form onSubmit={handleLogIn} id="signup-form">
 				<input
 					type="email"
 					placeholder="email"
@@ -54,7 +49,7 @@ export default function SignUp() {
 					required
 				/>
 				<footer>
-					<button type="submit">Sign Up</button>
+					<button type="submit">Log In</button>
 					<button type="button" onClick={() => nav("/")}>
 						Go back
 					</button>

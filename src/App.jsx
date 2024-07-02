@@ -10,6 +10,8 @@ import { messaging, onMessage } from "./firebaseConfig";
 
 import {ToastContainer} from "react-toastify"; 
 import SignUp from "./component/fourms/SignUp";
+import LogIn from "./component/fourms/LogIn";
+import Dashboard from "./component/Dashboard";
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
 // export default class App extends Component {
@@ -63,6 +65,8 @@ const App=() => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />

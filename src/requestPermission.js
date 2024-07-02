@@ -1,19 +1,19 @@
 // src/requestPermission.js
 import { messaging, getToken } from './firebaseConfig.js';
 
-const sendTokenToServer = async (token) => {
-  try {
-    await fetch('http://localhost:5005/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ token }),
-    });
-  } catch (error) {
-    console.error('An error occurred while sending token to server. ', error);
-  }
-};
+// const sendTokenToServer = async (token) => {
+//   try {
+//     await fetch('http://localhost:5005/register', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ token }),
+//     });
+//   } catch (error) {
+//     console.error('An error occurred while sending token to server. ', error);
+//   }
+// };
 
 const VAPID_KEY = 'BOkM-C7kycoEB3L4ieJMyA_Qr9XZ7xDvYbmTSZ7atgL4sDO2NFk-KGMHxU1hdjhA1cklUZkKd9R5ShdytauZSXA';
 const requestPermission = async () => {
@@ -21,7 +21,7 @@ const requestPermission = async () => {
     const token = await getToken(messaging, { vapidKey: VAPID_KEY });
     if (token) {
       console.log('FCM Token:', token);
-      await sendTokenToServer(token);
+      // await sendTokenToServer(token);
     } else {
       console.log('No registration token available. Request permission to generate one.');
     }

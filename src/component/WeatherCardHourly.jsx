@@ -26,8 +26,6 @@ function WeatherCardHourly() {
 
   const handleSavePreferences = (preferences) => {
     console.log('Saving preferences:', preferences);
-    // Here you can save preferences to localStorage, database, etc.
-    // For now, just log them for demonstration
   };
   
   if (!hourlyWeather) {

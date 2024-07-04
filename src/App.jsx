@@ -1,4 +1,6 @@
 import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import Homepage from "./pages/Homepage";
 import { Routes, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
@@ -7,15 +9,15 @@ import NotFound from "./pages/NotFound";
 import requestPermission from "./requestPermission";
 import React, { useEffect } from "react";
 import { messaging, onMessage } from "./firebaseConfig";
-import { useToken } from './TokenContext';
+import { useToken } from "./TokenContext";
 
-import {ToastContainer} from "react-toastify"; 
+import { ToastContainer } from "react-toastify";
 import SignUp from "./component/fourms/SignUp";
 import LogIn from "./component/fourms/LogIn";
 import Dashboard from "./component/Dashboard";
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
-const App=() => {
+const App = () => {
   requestPermission();
   const { token } = useToken();
 
@@ -34,6 +36,6 @@ const App=() => {
       {/* <button onClick={handleClick}>Request Notification Permission</button> */}
     </div>
   );
-}
+};
 
 export default App;

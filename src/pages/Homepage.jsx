@@ -14,6 +14,7 @@ const Homepage = () => {
       <Intro /> 
       <WeatherCard />
       <WeatherCardHourly />
+
       <Footer />
     </div>
   )

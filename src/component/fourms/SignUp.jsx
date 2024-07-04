@@ -7,9 +7,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth , FirebaseDb } from "../../firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { useToken } from "../../TokenContext";
 
 
 export default function SignUp() {
+	const { token } = useToken();
+
 	const [userName, setUserName] = useState("");
 	const [emailAddress, setEmailAddress] = useState("");
 	const [password, setPassword] = useState("");
@@ -34,6 +37,7 @@ export default function SignUp() {
 				await setDoc(doc(FirebaseDb, "users", userToCreate.uid), {
 					email: userToCreate.email,
 					userName: userName,
+					fcmToken: token,
 				})
 			}
 		} catch (error){

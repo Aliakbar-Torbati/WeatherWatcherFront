@@ -6,9 +6,8 @@ function WeatherCard() {
   const [currWeather, setCurrWeather] = useState();
   useEffect(() => {
     const getCurrWeather = async () => {
-      const apiKey = "75d1c38f05454e209edbb4511ed3dd99";
-      // const url = `https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=${apiKey}&include=minutely`;
-      const url = `https://api.weatherbit.io/v2.0/current?city=Berlin&key=${apiKey}&include=minutely`;
+      const weatherAPIKey =import.meta.env.VITE_FIREBASE_weather_API_Key;
+      const url = `https://api.weatherbit.io/v2.0/current?city=Berlin&key=${weatherAPIKey}&include=minutely`;
 
       try {
         const response = await axios.get(url);

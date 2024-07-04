@@ -11,8 +11,8 @@ function WeatherCardHourly() {
   const [selectedCity, setSelectedCity] = useState('Berlin');
   useEffect(() => {
     const getHourlyWeather = async () => {
-      const apiKey = "75d1c38f05454e209edbb4511ed3dd99";
-      const url = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${selectedCity}&key=${apiKey}&hours=24`;
+      const weatherAPIKey =import.meta.env.VITE_FIREBASE_weather_API_Key;
+      const url = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${selectedCity}&key=${weatherAPIKey}&hours=24`;
       try {
         const response = await axios.get(url);
         console.log("Hourly Weather Forecast", response.data.data);

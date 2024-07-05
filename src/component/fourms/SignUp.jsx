@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth , FirebaseDb } from "../../firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
-import { useToken } from "../../TokenContext";
+import { useToken } from "../../context/TokenContext";
 
 
 export default function SignUp() {
@@ -18,6 +18,11 @@ export default function SignUp() {
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [error, setError] = useState("");
+	const [city, setCity] = useState('');
+	const [coldThreshold, setColdThreshold] = useState('');
+	const [hotThreshold, setHotThreshold] = useState('');
+	const [notifyRain, setNotifyRain] = useState(false);
+	const [time, setTime] = useState('');
 
 	const nav = useNavigate();
 
@@ -38,8 +43,14 @@ export default function SignUp() {
 					email: userToCreate.email,
 					userName: userName,
 					fcmToken: token,
+					city: city,
+					coldThreshold: coldThreshold,
+					hotThreshold: hotThreshold,
+					notifyRain: notifyRain,
+					time: time
 				})
 			}
+			nav("/login");
 		} catch (error){
 			console.log(error.message);
 			toast.error(error.message, {position:'bottom-center'})

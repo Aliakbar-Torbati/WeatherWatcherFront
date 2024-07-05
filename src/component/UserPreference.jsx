@@ -8,10 +8,15 @@ const UserPreference = ({ onSave }) => {
   const [coldThreshold, setColdThreshold] = useState('');
   const [hotThreshold, setHotThreshold] = useState('');
   const [notifyRain, setNotifyRain] = useState(false);
+  const [time, setTime] = useState('');
   
 
 
-  const handleSave =  async (e) => {
+
+
+
+  
+  const handleUpdate =  async (e) => {
     e.preventDefault();
 
     // Validate inputs (e.g., ensure city is not empty)
@@ -24,7 +29,8 @@ const UserPreference = ({ onSave }) => {
       city,
       coldThreshold: parseFloat(coldThreshold),
       hotThreshold: parseFloat(hotThreshold),
-      notifyRain
+      notifyRain,
+      time
     };
     try {
       const response = await axios.post(`${API_URL}/location`, preferences)
@@ -75,7 +81,18 @@ const UserPreference = ({ onSave }) => {
         />
         <label htmlFor="rainCheckbox">Notify about possibility of rain ?</label>
       </div>
-      <button onClick={handleSave}>Save your Preferences to Alert</button>
+      <div>
+      <label>
+        Set Notification Time:
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+        />
+      </label>
+      </div>
+      <button onClick={handleUpdate}>Save your Preferences to Alert</button>
     </div>
   );
 };

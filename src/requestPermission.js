@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useToken } from "./TokenContext";
+import { useToken } from "./context/TokenContext.jsx";
 import { messaging, getToken } from "./firebaseConfig.js";
 
 const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;

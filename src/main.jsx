@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.scss";
 import { BrowserRouter as Router } from "react-router-dom";
-import { TokenProvider } from './TokenContext';
+import { TokenProvider } from './context/TokenContext.jsx';
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -8,18 +8,35 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import requestPermission from "./requestPermission";
 import React, { useEffect } from "react";
-import { messaging, onMessage } from "./firebaseConfig";
-import { useToken } from "./TokenContext";
-
+import { useToken } from "./context/TokenContext";
 import { ToastContainer } from "react-toastify";
 import SignUp from "./component/fourms/SignUp";
 import LogIn from "./component/fourms/LogIn";
 import Dashboard from "./component/Dashboard";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
+
 const App = () => {
-  requestPermission();
-  const { token } = useToken();
+  //getting the token of devise
+  // requestPermission();
+  // const { token } = useToken();
+  // checking user is logged in or not. If he is logged in, passing the user id to updating fourm.
+  // const [user, setUser] = useState(null);
+  // useEffect(() => {
+  //   const auth = getAuth();
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     if (currentUser) {
+  //       setUser(currentUser);
+  //     } else {
+  //       setUser(null);
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
+
 
   return (
     <div className="App">

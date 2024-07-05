@@ -3,24 +3,22 @@ import {auth, FirebaseDb} from "../firebaseConfig"
 import { doc, getDoc } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 
-
-
 function Dashboard() {
     const [userDetail, setUserDetail]= useState(null)
     const nav = useNavigate();
-    const fetchUserData= async () => {
-        auth.onAuthStateChanged(async (user) =>{
-            console.log(user);
-            const docRef= doc(FirebaseDb, "users", user.uid);
-            const fetchedUser= await getDoc (docRef);
-            if (fetchedUser.exists()){
-                setUserDetail(fetchedUser.data());
-                console.log("fetchedUser.data()", fetchedUser.data());
-            }else{
-                console.log("user is not logged in!");
-            }
-        })
-    }
+    // const fetchUserData= async () => {
+    //     auth.onAuthStateChanged(async (user) =>{
+    //         console.log(user);
+    //         const docRef= doc(FirebaseDb, "users", user.uid);
+    //         const fetchedUser= await getDoc (docRef);
+    //         if (fetchedUser.exists()){
+    //             setUserDetail(fetchedUser.data());
+    //             console.log("fetchedUser.data()", fetchedUser.data());
+    //         }else{
+    //             console.log("user is not logged in!");
+    //         }
+    //     })
+    // }
 
     const handleLogOut = async () => {
         try{
@@ -32,9 +30,9 @@ function Dashboard() {
         }
     }
 
-    useEffect(()=>{
-        fetchUserData();
-    },[])
+    // useEffect(()=>{
+    //     fetchUserData();
+    // },[])
 
   return (
     <div>

@@ -1,12 +1,14 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { API_URL } from "../../App";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebaseConfig";
+import { auth, FirebaseDb } from "../../firebaseConfig";
+import { useAuthen } from "../../context/AuthenContex";
+import { doc, getDoc } from 'firebase/firestore';
+
 
 export default function SignUp() {
+	// const { uuser, setUuser } = useAuthen();
 	const [emailAddress, setEmailAddress] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -15,14 +17,30 @@ export default function SignUp() {
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 		try{
-			await signInWithEmailAndPassword(auth, emailAddress, password);
-			console.log('user logged in successfully');
+			const userCredential =await signInWithEmailAndPassword(auth, emailAddress, password);
+			const user = userCredential.user;
+            console.log('User logged in successfully:', user);
+		    // fetchUserData();
 			nav('/dashboard')
 		}catch(error){
 			console.log(error.message);
 			toast.error(error.message, {position:'bottom-center'})
 		}
 	
+
+		const fetchUserData= async () => {
+			auth.onAuthStateChanged(async (user) =>{
+				console.log(user);
+				const docRef= doc(FirebaseDb, "users", user.uid);
+				const fetchedUser= await getDoc (docRef);
+				if (fetchedUser.exists()){
+					setUserDetail(fetchedUser.data());
+					console.log("fetchedUser.data()", fetchedUser.data());
+				}else{
+					console.log("user is not logged in!");
+				}
+			})
+		}
 
 	};
 	return (

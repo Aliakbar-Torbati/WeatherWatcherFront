@@ -8,10 +8,14 @@ import { auth , FirebaseDb } from "../../firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useToken } from "../../context/TokenContext";
+import { useAuthen } from "../../context/AuthenContex";
+
 
 
 export default function SignUp() {
+	const {uuser, setUuser } = useAuthen();
 	const { token } = useToken();
+	console.log("siginup token", token);
 
 	const [userName, setUserName] = useState("");
 	const [emailAddress, setEmailAddress] = useState("");
@@ -25,6 +29,10 @@ export default function SignUp() {
 	const [time, setTime] = useState('');
 
 	const nav = useNavigate();
+
+	if (uuser){
+		nav('/dashboard')
+	}
 
 	const handleSignup = async (e) => {
 		e.preventDefault();
@@ -57,16 +65,9 @@ export default function SignUp() {
 
 		}
 
-		// axios
-		// 	.post(`${API_URL}/register`, userToCreate)
-		// 	.then((response) => {
-		// 		console.log("new user was created", response.data);
-		// 		// nav("/login");
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log("there was an error signing up", err.response.data.message);
-		// 		setError(err.response.data.message);
-		// 	});
+		if (user){
+			nav('/dashboard')
+		}
 	};
 	return (
 		<>

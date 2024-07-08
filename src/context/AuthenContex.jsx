@@ -1,20 +1,31 @@
-import React, { createContext, useState, useContext } from 'react';
+// src/context/AuthenContex.js
 
-// Create the context
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../firebaseConfig';
+
 const AuthenContext = createContext();
 
-// Create a provider component
+export const useAuthen = () => useContext(AuthenContext);
+
 export const AuthenProvider = ({ children }) => {
-  const [uuser, setUuser] = useState(null);
+    const [uuser, setUser] = useState(null);
 
-  return (
-    <AuthenContext.Provider value={{ uuser, setUuser }}>
-      {children}
-    </AuthenContext.Provider>
-  );
-};
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+            if (firebaseUser) {
+                setUser(firebaseUser);
+                // Optionally fetch additional user data here
+            } else {
+                setUser(null);
+            }
+        });
 
-// Custom hook to use the AuthenContext
-export const useAuthen = () => {
-  return useContext(AuthenContext);
+        return () => unsubscribe();
+    }, []);
+
+    return (
+        <AuthenContext.Provider value={{ uuser: uuser, setUuser: setUser }}>
+            {children}
+        </AuthenContext.Provider>
+    );
 };

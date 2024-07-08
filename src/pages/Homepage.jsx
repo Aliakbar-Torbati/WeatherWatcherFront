@@ -13,31 +13,15 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
 const Homepage = () => {
-  //getting the token of devise
-  requestPermission();
   const { token } = useToken();
-  // check if the user is logged in
-  // const { isThereUser } = useAuthen();
-  // console.log("is there user", isThereUser);
+  const { uuser } = useAuthen();
+  console.log('homepage user', uuser);
+  console.log('homepage token', token);
 
 
 
 
-  // checking user is logged in or not. If he is logged in, passing the user id to updating fourm.
-  // const [user, setUser] = useState(null);
-  // useEffect(() => {
-  //   const auth = getAuth();
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     if (currentUser) {
-  //       setUser(currentUser);
-  //       console.log("current user", user);
-  //     } else {
-  //       setUser(null);
-  //     }
-  //   });
 
-  //   return () => unsubscribe();
-  // }, []);
 
   return (
     <div>

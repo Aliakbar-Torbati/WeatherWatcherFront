@@ -7,41 +7,45 @@ import { useAuthen } from "../../context/AuthenContex";
 import { doc, getDoc } from 'firebase/firestore';
 
 
-export default function SignUp() {
-	// const { uuser, setUuser } = useAuthen();
+export default function LoggIn() {
+    const {uuser, setUuser } = useAuthen();
 	const [emailAddress, setEmailAddress] = useState("");
 	const [password, setPassword] = useState("");
-
 	const nav = useNavigate();
+
+	if (uuser){
+		nav('/dashboard')
+	}
+
+	const fetchUserData= async (userId) => {
+		try {
+			const docRef= doc(FirebaseDb, "users", userId);
+			const fetchedUser= await getDoc (docRef);
+			if (fetchedUser.exists()){
+				setUuser(fetchedUser.data());
+				console.log("fetchedUser.data()", fetchedUser.data());
+			}else{
+				console.log("user data not found!");
+			}
+		} catch (error){
+			console.error("error while fetching user data:", error)
+		}
+	};
 
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 		try{
 			const userCredential =await signInWithEmailAndPassword(auth, emailAddress, password);
 			const user = userCredential.user;
-            console.log('User logged in successfully:', user);
-		    // fetchUserData();
+            console.log('User logged in successfully');
+			console.log('user id', user.uid);
 			nav('/dashboard')
+		    await fetchUserData(user.uid);
+			
 		}catch(error){
 			console.log(error.message);
-			toast.error(error.message, {position:'bottom-center'})
+			// toast.error(error.message, {position:'bottom-center'})
 		}
-	
-
-		const fetchUserData= async () => {
-			auth.onAuthStateChanged(async (user) =>{
-				console.log(user);
-				const docRef= doc(FirebaseDb, "users", user.uid);
-				const fetchedUser= await getDoc (docRef);
-				if (fetchedUser.exists()){
-					setUserDetail(fetchedUser.data());
-					console.log("fetchedUser.data()", fetchedUser.data());
-				}else{
-					console.log("user is not logged in!");
-				}
-			})
-		}
-
 	};
 	return (
 		<>

@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import {auth, FirebaseDb} from "../firebaseConfig"
-import { doc, getDoc } from 'firebase/firestore';
+import { useAuthen } from "../context/AuthenContex";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-    const [userDetail, setUserDetail]= useState(null)
     const nav = useNavigate();
-    // const fetchUserData= async () => {
-    //     auth.onAuthStateChanged(async (user) =>{
-    //         console.log(user);
-    //         const docRef= doc(FirebaseDb, "users", user.uid);
-    //         const fetchedUser= await getDoc (docRef);
-    //         if (fetchedUser.exists()){
-    //             setUserDetail(fetchedUser.data());
-    //             console.log("fetchedUser.data()", fetchedUser.data());
-    //         }else{
-    //             console.log("user is not logged in!");
-    //         }
-    //     })
-    // }
+    const { uuser } = useAuthen();
+    console.log('about user', uuser);
 
     const handleLogOut = async () => {
         try{
@@ -36,12 +24,12 @@ function Dashboard() {
 
   return (
     <div>
-        {userDetail ? (
-            <h3>Welcome {userDetail.userName}</h3>
+        {uuser ? (
+            <h3>Welcome {uuser.email}</h3>
         ) : (
             <p>Loading ...</p>
         )}
-        {userDetail ? <button onClick={handleLogOut}>Log Out</button> : <button onClick={()=>{nav('/')}}>Home Page</button>}
+        {uuser ? <button onClick={handleLogOut}>Log Out</button> : <button onClick={()=>{nav('/')}}>Home Page</button>}
     </div>
   )
 }

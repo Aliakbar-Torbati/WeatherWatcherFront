@@ -7,8 +7,8 @@ import CitySearch from "./CitySearch";
 import UserPreference from "./UserPreference";
 
 function WeatherCardHourly() {
-  const [hourlyWeather, setHourlyWeather] = useState([]);
-  const [selectedCity, setSelectedCity] = useState('Berlin');
+   const [hourlyWeather, setHourlyWeather] = useState([]);
+   const [selectedCity, setSelectedCity] = useState('Berlin');
   useEffect(() => {
     const getHourlyWeather = async () => {
       const weatherAPIKey =import.meta.env.VITE_FIREBASE_weather_API_Key;

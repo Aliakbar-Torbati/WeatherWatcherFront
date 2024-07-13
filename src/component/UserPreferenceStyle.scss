@@ -1,6 +1,7 @@
 /* WeatherCardStyle.scss or a new CSS file */
 .user-preference-container {
-    max-width: 400px;
+  width: 40%;
+    max-width: 500px;
     margin: 20px auto;
     padding: 20px;
     background-color: #acabab;
@@ -51,4 +52,89 @@
   .user-preference-container button:hover {
     background-color: #0056b3;
   }
+  .read-only-input {
+    background-color: #e0e0e0; /* Light grey background */
+    color: #333; /* Dark text color */
+    cursor: not-allowed; /* Indicate that the input is not editable */
+  }
+  .notification-container{
+    border: 1px solid rgb(219, 220, 233);
+    background-color:#4186B2;
+    margin: 20px 0;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .notification-checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+  .large-checkbox{
+    transform: scale(0.3); /* Adjust the scale as needed */
+    -webkit-transform: scale(0.3); /* For Safari */
+    margin-right: 0px;
+  }
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .label-with-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    border: 1px solid greenyellow;
+    padding: 0px 5px;
+    background-color: #97d8a5;
+    border-radius: 5px;
+  }
+  
+  .label-with-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the text */
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 1px solid greenyellow;
+  }
+  
+  .label-with-tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .label-with-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  @media screen and (max-width: 1007px) {
+    .user-preference-container {
+      width: 60%;
+      
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .user-preference-container {
+      width: 80%;
+      
+    }
+  }
+  
   

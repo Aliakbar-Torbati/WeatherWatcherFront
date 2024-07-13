@@ -11,7 +11,6 @@ import { useToken } from "../../context/TokenContext";
 import { useAuthen } from "../../context/AuthenContex";
 
 
-
 export default function SignUp() {
 	const {uuser, setUuser } = useAuthen();
 	const { token } = useToken();

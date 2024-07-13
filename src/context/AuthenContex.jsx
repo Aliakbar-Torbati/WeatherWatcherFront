@@ -1,22 +1,26 @@
-// src/context/AuthenContex.js
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebaseConfig';
+import { auth, FirebaseDb  } from '../firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
 
 const AuthenContext = createContext();
 
 export const useAuthen = () => useContext(AuthenContext);
 
 export const AuthenProvider = ({ children }) => {
-    const [uuser, setUser] = useState(null);
+    const [uuser, setUuser] = useState(null);
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+        const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
             if (firebaseUser) {
-                setUser(firebaseUser);
-                // Optionally fetch additional user data here
+                const docRef = doc(FirebaseDb, "users", firebaseUser.uid);
+                const fetchedUser = await getDoc(docRef);
+                if (fetchedUser.exists()) {
+                    setUuser({ ...firebaseUser, ...fetchedUser.data() });
+                } else {
+                    setUuser(firebaseUser);
+                }
             } else {
-                setUser(null);
+                setUuser(null);
             }
         });
 
@@ -24,7 +28,7 @@ export const AuthenProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthenContext.Provider value={{ uuser: uuser, setUuser: setUser }}>
+        <AuthenContext.Provider value={{ uuser: uuser, setUuser: setUuser }}>
             {children}
         </AuthenContext.Provider>
     );

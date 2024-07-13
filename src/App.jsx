@@ -14,6 +14,7 @@ import SignUp from "./component/fourms/SignUp";
 import LogIn from "./component/fourms/LogIn";
 import Dashboard from "./component/Dashboard";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import Profile from "./pages/Profile";
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -21,8 +22,6 @@ export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 const App = () => {
   //getting the token of devise
    requestPermission();
-
-
 
   return (
     <div className="App">
@@ -33,6 +32,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />

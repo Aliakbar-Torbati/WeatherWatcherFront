@@ -125,7 +125,7 @@ const UserPreference = ({ onSave }) => {
           <div className="notification-checkbox">
             <label htmlFor="rainCheckbox">Get notification every day ?
                       <span className="label-with-tooltip">?
-            <span className="tooltip-text">Check this box if you want to be notified about the weather condition every day in this device.</span>
+            <span className="tooltip-text">Check this box if you want to be notified about the weather condition every day in this deviceg.</span>
           </span>
             </label>
             <input

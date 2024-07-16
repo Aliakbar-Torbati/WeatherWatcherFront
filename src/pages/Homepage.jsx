@@ -11,6 +11,8 @@ import { useAuthen } from "../context/AuthenContex";
 import requestPermission from "../requestPermission";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
+import "../component/WeatherCardStyle.scss";
+
 
 const Homepage = () => {
   const { token } = useToken();
@@ -24,10 +26,12 @@ const Homepage = () => {
 
 
   return (
-    <div>
+    <div className="homepage-container">
       <Navbar />
       <Intro />
+      <div className="homepage">
       <WeatherCard />
+      </div>
       <WeatherCardHourly />
       <Footer />
     </div>

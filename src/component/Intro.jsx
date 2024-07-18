@@ -19,8 +19,6 @@ const Intro = () => {
         <p> illustrations, and graphic elements</p>
         <p>Weather Website. Inspirational designs,</p>
         <p> illustrations, and graphic elements</p>
-
-        <CitySearch />
       </div>
     </div>
   );

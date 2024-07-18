@@ -32,7 +32,7 @@ const Homepage = () => {
       <div className="homepage">
       <WeatherCard />
       </div>
-      <WeatherCardHourly />
+      {/* <WeatherCardHourly /> */}
       <Footer />
     </div>
   );

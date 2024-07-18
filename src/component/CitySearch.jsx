@@ -28,7 +28,6 @@ const CitySearch = ({ setSelectedCity }) => {
     setFilteredCities([]);
 
   };
-
   return (
     <div className="search-container">
       <input
@@ -49,5 +48,4 @@ const CitySearch = ({ setSelectedCity }) => {
     </div>
   );
 };
-
 export default CitySearch;

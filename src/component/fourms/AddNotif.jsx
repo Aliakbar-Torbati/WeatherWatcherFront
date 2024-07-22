@@ -1,10 +1,10 @@
-import "./UserPreferenceStyle.scss";
+import "./AddNotifStyle.scss";
 import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { FirebaseDb, auth } from "../firebaseConfig";
-import { useAuthen } from "../context/AuthenContex";
+import { FirebaseDb, auth } from "../../firebaseConfig";
+import { useAuthen } from "../../context/AuthenContex";
 
-const UserPreference = ({ onSave }) => {
+const AddNotif = ({ onSave }) => {
   const { uuser } = useAuthen();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -59,26 +59,8 @@ const UserPreference = ({ onSave }) => {
 
   return (
     <div className="user-preference-container">
-      <h2>Your Profile</h2>
+      <h2>Set Notification here</h2>
       <form onSubmit={handleUpdate}>
-        <div>
-          <label htmlFor="emailInput">Email:</label>
-          <input
-            type="email"
-            id="emailInput"
-            value={email}
-            readOnly
-            className="read-only-input"
-          />
-        </div>
-        <label htmlFor="usernameInput">Username:</label>
-        <input
-          type="text"
-          id="usernameInput"
-          value={username}
-          readOnly
-          className="read-only-input"
-        />
         <div>
           <label htmlFor="cityInput">City Name:
           <span className="label-with-tooltip">
@@ -125,7 +107,7 @@ const UserPreference = ({ onSave }) => {
           <div className="notification-checkbox">
             <label htmlFor="rainCheckbox">Get notification every day ?
                       <span className="label-with-tooltip">?
-            <span className="tooltip-text">Check this box if you want to be notified about the weather condition every day in this device.</span>
+            <span className="tooltip-text">Check this box if you want to be notified about the weather condition every day in this deviceg.</span>
           </span>
             </label>
             <input
@@ -140,7 +122,7 @@ const UserPreference = ({ onSave }) => {
             <label>
               Set Notification Time:
             <span className="label-with-tooltip">?
-            <span className="tooltip-text">Set the time you want to receive notification.</span>
+            <span className="tooltip-text">Set the time you want to receive notifications.</span>
           </span>
               <input
                 type="time"
@@ -158,4 +140,4 @@ const UserPreference = ({ onSave }) => {
   );
 };
 
-export default UserPreference;
+export default AddNotif;

@@ -9,28 +9,42 @@ import UserPreference from "../component/UserPreference";
 import { useToken } from "../context/TokenContext";
 import { useAuthen } from "../context/AuthenContex";
 import requestPermission from "../requestPermission";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { TbEyePlus } from "react-icons/tb";
 
 import "../component/WeatherCardStyle.scss";
-
+import AddNotif from "../component/fourms/AddNotif";
 
 const Homepage = () => {
   const { token } = useToken();
   const { uuser } = useAuthen();
-  console.log('homepage user', uuser);
-  console.log('homepage token', token);
-
-
-
-
-
+  console.log("homepage user", uuser);
+  console.log("homepage token", token);
+  const [isPrefernceFormVisible, setIsPrefrenceFormVisible] = useState(false);
+  const toggleFormVisibility = () => {
+    setIsPrefrenceFormVisible(!isPrefernceFormVisible);
+  };
 
   return (
     <div className="homepage-container">
       <Navbar />
       <Intro />
+      <div className="icon" onClick={toggleFormVisibility}>
+        <TbEyePlus size={70} style={{ color: "#fff" }} />
+      </div>
+      {isPrefernceFormVisible && (
+        <div className="form-window">
+          <div className="form-header">
+            <button className="close-button" onClick={toggleFormVisibility}>
+              X
+            </button>
+          </div>
+          <AddNotif />
+        </div>
+      )}
+
       <div className="homepage">
-      <WeatherCard />
+        <WeatherCard />
       </div>
       {/* <WeatherCardHourly /> */}
       <Footer />

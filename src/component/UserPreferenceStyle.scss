@@ -1,10 +1,11 @@
 /* WeatherCardStyle.scss or a new CSS file */
 .user-preference-container {
-  width: 40%;
+  position: relative;
+  width: 80%;
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #acabab;
+    background-color: #dfe0e7;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14,6 +15,7 @@
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align: center;
+    color: #f8f7f7;
   }
   
   .user-preference-container label {
@@ -40,8 +42,8 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #3700ff;
+    color: rgb(70, 26, 26);
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -68,7 +70,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
   }
   .large-checkbox{
     transform: scale(0.3); /* Adjust the scale as needed */
@@ -124,16 +125,15 @@
     visibility: visible;
     opacity: 1;
   }
-  @media screen and (max-width: 1007px) {
-    .user-preference-container {
-      width: 60%;
+  // @media screen and (max-width: 1007px) {
+  //   .user-preference-container {
+  //     width: 60%;
       
-    }
-  }
+  //   }
+  // }
   @media screen and (max-width: 640px) {
     .user-preference-container {
       width: 80%;
-      
     }
   }
   

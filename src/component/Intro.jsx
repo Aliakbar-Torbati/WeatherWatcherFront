@@ -1,7 +1,4 @@
 import "./IntroStyle.scss";
-import CitySearch from "./CitySearch";
-import { Link } from "react-router-dom";
-import Footer from "../component/Footer";
 
 const Intro = () => {
   return (

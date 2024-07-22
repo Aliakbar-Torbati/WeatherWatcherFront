@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./NavbarStyle.scss";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
+
 
 const Navbar = () => {
 
@@ -21,20 +23,19 @@ const Navbar = () => {
   return (
     <div className={navbarColor ? " header header-bg" : "header"}>
       <Link to={"/"}>
-        <h2>Portfolio</h2>
+        <h2>Weather Watcher</h2>
       </Link>
       <ul className={clickNav ? "nav-menue active" : "nav-menue"}>
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li>
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/profile">
+              <FaRegUserCircle size={25} style={{ color: "#fff" }}/>
+          </Link>
         </li>
       </ul>
       <div className="hamburgerIcon">

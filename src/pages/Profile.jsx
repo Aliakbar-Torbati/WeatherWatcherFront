@@ -1,10 +1,16 @@
-import React from 'react'
-import UserPreference from '../component/UserPreference'
+import Navbar from '../component/Navbar'
+import Footer from '../component/Footer'
+import Intro2 from '../component/Intro2'
+import { useAuthen } from "../context/AuthenContex";
+import UserPreference from '../component/UserPreference';
+
 
 function Profile() {
   return (
     <div>
-       <UserPreference />
+      <Navbar />
+      <Intro2 profile={<UserPreference />} />
+      <Footer />
     </div>
   )
 }

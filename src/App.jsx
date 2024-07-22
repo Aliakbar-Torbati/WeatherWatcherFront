@@ -15,6 +15,7 @@ import LogIn from "./component/fourms/LogIn";
 import Dashboard from "./component/Dashboard";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Profile from "./pages/Profile";
+import Projects from "./pages/Projects";
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -26,6 +27,8 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
+      <Route path="/projects" element={<Projects />} />
+
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />

@@ -44,7 +44,6 @@ export default function LoggIn() {
 			
 		}catch(error){
 			console.log(error.message);
-			// toast.error(error.message, {position:'bottom-center'})
 		}
 	};
 	return (
@@ -60,7 +59,6 @@ export default function LoggIn() {
 					}}
 					required
 				/>
-
 				<input
 					type="password"
 					placeholder="password"

@@ -39,14 +39,16 @@
     margin: 0.5rem 0rem 1.5rem 0;
     padding: 0.6rem 0 1.5rem;
     color: rgb(255, 255, 255);
+    & .intro-text {
+      font-size: 1.4rem;
+      font-weight: 200;
+      background-color: rgb(0, 0, 0);
+      opacity: 60%;
+    }
   }
-  & .introContent p {
-    font-size: 1.4rem;
-    font-weight: 200;
-    background-color: rgb(0, 0, 0);
-    opacity: 60%;
-  }
+
 }
+
 @media screen and (max-width: 1007px) {
   .introContainer {
     & .introContent {

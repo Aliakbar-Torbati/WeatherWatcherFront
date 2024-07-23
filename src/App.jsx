@@ -16,6 +16,7 @@ import Dashboard from "./component/Dashboard";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
+import LogInPage from "./pages/LogInPage";
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -31,7 +32,7 @@ const App = () => {
 
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<LogInPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />

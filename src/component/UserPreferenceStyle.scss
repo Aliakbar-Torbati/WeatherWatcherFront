@@ -21,6 +21,7 @@
   .user-preference-container label {
     display: block;
     margin-bottom: 10px;
+    color: #ccc;
   }
   
   .user-preference-container input[type="text"],
@@ -90,13 +91,14 @@
     padding: 0px 5px;
     background-color: #97d8a5;
     border-radius: 5px;
+    color: #333;
   }
   
   .label-with-tooltip .tooltip-text {
     visibility: hidden;
     width: 200px;
-    background-color: #555;
-    color: #fff;
+    // background-color: #555;
+    // color: #631f1f;
     text-align: center;
     border-radius: 5px;
     padding: 5px;

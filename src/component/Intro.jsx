@@ -12,7 +12,7 @@ const Intro = () => {
       </div>
       <div className="introContent">
         <h1>Weather Watcher Application</h1>
-        <p>Weather Website. Inspirational designs</p>
+        <p className="intro-text">Weather Website. Inspirational designs</p>
         <p> illustrations, and graphic elements</p>
         <p>Weather Website. Inspirational designs,</p>
         <p> illustrations, and graphic elements</p>

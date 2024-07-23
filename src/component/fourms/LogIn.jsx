@@ -1,6 +1,6 @@
-
+import './LogInStyle.scss'
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, FirebaseDb } from "../../firebaseConfig";
 import { useAuthen } from "../../context/AuthenContex";
@@ -14,7 +14,7 @@ export default function LoggIn() {
 	const nav = useNavigate();
 
 	if (uuser){
-		nav('/dashboard')
+		nav('/profile')
 	}
 
 	const fetchUserData= async (userId) => {
@@ -47,9 +47,9 @@ export default function LoggIn() {
 		}
 	};
 	return (
-		<>
-			<h2>LogIn here</h2>
-			<form onSubmit={handleLogIn} id="signup-form">
+		<div className='login-container'>
+			<h2>Login here</h2>
+			<form onSubmit={handleLogIn} className="signup-form">
 				<input
 					type="email"
 					placeholder="email"
@@ -70,12 +70,10 @@ export default function LoggIn() {
 				/>
 				<footer>
 					<button type="submit">Log In</button>
-					<button type="button" onClick={() => nav("/")}>
-						Go back
-					</button>
 				</footer>
+				<p>If you don't have an account, you can simply <Link to="/register">register form here !</Link></p>
 			</form>
-		</>
+		</div>
 	);
 }
 

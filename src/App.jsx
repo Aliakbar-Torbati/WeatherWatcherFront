@@ -10,13 +10,13 @@ import requestPermission from "./requestPermission";
 import React, { useEffect } from "react";
 import { useToken } from "./context/TokenContext";
 import { ToastContainer } from "react-toastify";
-import SignUp from "./component/fourms/SignUp";
-import LogIn from "./component/fourms/LogIn";
 import Dashboard from "./component/Dashboard";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
 import LogInPage from "./pages/LogInPage";
+import SignUpPage from "./pages/SignUpPage";
+
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
@@ -31,7 +31,7 @@ const App = () => {
       <Route path="/projects" element={<Projects />} />
 
         <Route path="/" element={<Homepage />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />

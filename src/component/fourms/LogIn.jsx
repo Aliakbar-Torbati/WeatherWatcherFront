@@ -39,7 +39,7 @@ export default function LoggIn() {
 			const user = userCredential.user;
             console.log('User logged in successfully');
 			console.log('user id', user.uid);
-			nav('/dashboard')
+			nav('/')
 		    await fetchUserData(user.uid);
 			
 		}catch(error){
@@ -71,7 +71,7 @@ export default function LoggIn() {
 				<footer>
 					<button type="submit">Log In</button>
 				</footer>
-				<p>If you don't have an account, you can simply <Link to="/register">register form here !</Link></p>
+				<p>If you don't have an account, you can simply <Link to="/signup">register form here !</Link></p>
 			</form>
 		</div>
 	);

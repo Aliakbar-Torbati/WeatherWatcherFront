@@ -3,12 +3,19 @@ import "./NavbarStyle.scss";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useAuthen } from "../context/AuthenContex";
 
 
 const Navbar = () => {
-
+  const {uuser, setUuser } = useAuthen();
   // make a responsive and collapsible navbar
   const [clickNav, setClickNav] = useState(false);
+    // State to manage the dropdown visibility
+    const [showDropdown, setShowDropdown] = useState(false);
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+    
   const handleNavbar = () => {
     setClickNav(!clickNav);
   };
@@ -33,7 +40,7 @@ const Navbar = () => {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/profile">
+          <Link to={uuser ? "/profile" : "/login"}>
               <FaRegUserCircle size={25} style={{ color: "#fff" }}/>
           </Link>
         </li>

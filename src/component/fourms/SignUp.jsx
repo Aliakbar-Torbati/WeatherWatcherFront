@@ -1,4 +1,4 @@
-
+import './LogInStyle.scss'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -30,7 +30,7 @@ export default function SignUp() {
 	const nav = useNavigate();
 
 	if (uuser){
-		nav('/dashboard')
+		nav('/')
 	}
 
 	const handleSignup = async (e) => {
@@ -57,7 +57,7 @@ export default function SignUp() {
 					time: time
 				})
 			}
-			nav("/login");
+			nav("/");
 		} catch (error){
 			console.log(error.message);
 			toast.error(error.message, {position:'bottom-center'})
@@ -69,10 +69,10 @@ export default function SignUp() {
 		}
 	};
 	return (
-		<>
-			<h2>sign_up_with_us</h2>
-			<form onSubmit={handleSignup} id="signup-form">
-				<input
+		<div className='login-container'>
+			<h2>Signup with us</h2>
+			<form onSubmit={handleSignup} className="signup-form">
+			<input
 					type="text"
 					value={userName}
 					placeholder="user_name"
@@ -110,13 +110,10 @@ export default function SignUp() {
 				/>
 				<footer>
 					<button type="submit">Sign Up</button>
-					<button type="button" onClick={() => nav("/")}>
-						Go back
-					</button>
 				</footer>
 				{error ? <h4 className="error-message">{error}</h4> : null}
 			</form>
-		</>
+		</div>
 	);
 }
 

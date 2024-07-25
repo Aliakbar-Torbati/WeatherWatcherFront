@@ -31,6 +31,42 @@ font-weight: 500;
 .hamburgerIcon {
   display: none;
 }
+
+
+.user-icon-wrapper {
+  position: relative;
+  // display: inline-block;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu1 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-color: rgb(58, 30, 30);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 10px;
+}
+
+// .dropdown-button {
+//   background-color: #007bff;
+//   color: rgb(172, 72, 72);
+//   border: none;
+//   padding: 8px 16px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   width: 100%;
+//   z-index: 1000;
+
+// }
+
+.dropdown-button:hover {
+  background-color: #0056b3;
+}
 @media screen and (max-width: 640px) {
 .nav-menue{
   flex-direction: column;

@@ -10,6 +10,12 @@
   width: 100%;
   height: 90px;
   z-index: 1;
+  & h2 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
+    list-style-type: none;
+  }
 }
 .header-bg{
   background-color: rgba(1, 5, 8, 0.85);
@@ -21,11 +27,13 @@
   & li {
     padding: 0 1rem;
     list-style-type: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   & li a {
-font-weight: 500;
+    font-weight: 500;
     font-size: 1.2rem;
+    color: #ffffff;
+    text-decoration: none;
   }
 }
 .hamburgerIcon {
@@ -43,30 +51,52 @@ font-weight: 500;
 
 .dropdown-menu1 {
   position: absolute;
-  top: 50%;
-  right: 0;
-  background-color: rgb(58, 30, 30);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  z-index: 1000;
+  top: 130%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.5);
+  // backdrop-filter: blur(10px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  border: 1px solid rgba(240, 240, 248, 0.5); /* Light border */
+  border-radius: 8px; /* Rounded corners */
   padding: 10px;
+  z-index: 1000;
+  min-width: 150px; /* Minimum width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-// .dropdown-button {
-//   background-color: #007bff;
-//   color: rgb(172, 72, 72);
-//   border: none;
-//   padding: 8px 16px;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   width: 100%;
-//   z-index: 1000;
-
-// }
-
-.dropdown-button:hover {
-  background-color: #0056b3;
+.dropdown-menu1 li {
+  margin: 10px 0;
 }
+
+
+.dropdown-menu1 a:hover {
+  color: #cfd5f8; /* Color change on hover */
+}
+
+.dropdown-menu1 button {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.dropdown-menu1 button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.dropdown-button:focus {
+  outline: none;
+}
+
+
+
 @media screen and (max-width: 640px) {
 .nav-menue{
   flex-direction: column;
@@ -82,7 +112,7 @@ font-weight: 500;
   background-color: rgba(1, 5, 8, 0.99);
   & li {
     padding: 1rem 0;
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 .nav-menue.active{
@@ -91,6 +121,27 @@ font-weight: 500;
 .hamburgerIcon{
   display: initial;
 }
+
+
+.dropdown-menu1 {
+  padding: 5px;
+  min-width: 120px; /* Minimum width */
+}
+
+.dropdown-menu1 li {
+  margin: 5px 0;
+}
+
+
+
+.dropdown-menu1 button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+
 }
 
 

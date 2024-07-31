@@ -43,7 +43,7 @@
 .left-container{
     display: flex;
     flex-direction: column; 
-    justify-content: space-around;
+    justify-content: center;
 }
 .hour-card-container{
     // margin: 10px;
@@ -64,6 +64,9 @@
     }
     .icon-box{
         flex: 1;
+        & img {
+            width: 55px;
+        }
     }
     .temp-box{
         flex: 2;
@@ -72,8 +75,36 @@
         display: flex;
         flex-direction: row;
         flex: 1;
+        & p{
+            margin-left: 5px;
+        }
     }
     & img{
-        width: 20%;
+        width: 50%;
+    }
+}
+.toggle-button{
+    cursor: pointer;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    // border: 1px solid blue
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    // border-radius: 8px;
+    & h2{
+        color: aliceblue;
+    }
+}
+.loading{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    color: antiquewhite;
+    font-size: 2rem;
+    & p{
+        
+        font-size: 2rem;
     }
 }

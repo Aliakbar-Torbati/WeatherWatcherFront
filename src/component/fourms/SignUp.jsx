@@ -44,7 +44,6 @@ export default function SignUp() {
 			await createUserWithEmailAndPassword(auth, emailAddress, password)
 			const userToCreate = auth.currentUser;
 			console.log("created user: ",userToCreate);
-			toast.success("You registered successfully!!")
 			if (userToCreate){
 				await setDoc(doc(FirebaseDb, "users", userToCreate.uid), {
 					email: userToCreate.email,

@@ -1,5 +1,5 @@
 import './LogInStyle.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, FirebaseDb } from "../../firebaseConfig";
@@ -17,6 +17,31 @@ export default function LoggIn() {
 		nav('/profile')
 	}
 
+	useEffect(() => {
+		console.log("Checking if user is authenticated");
+		if (auth.currentUser) {
+		  console.log("User authenticated, fetching data...");
+		  fetchUserData(auth.currentUser.uid);
+		} else {
+		  console.log("No authenticated user found.");
+		}
+	  }, []);
+
+	const handleLogIn = async (event) => {
+		event.preventDefault();
+		try{
+			const userCredential =await signInWithEmailAndPassword(auth, emailAddress, password);
+			const user = userCredential.user;
+            console.log('User logged in successfully');
+			console.log('user id', user.uid);
+		    await fetchUserData(user.uid);
+			nav('/')
+			
+		}catch(error){
+			console.log(error.message);
+		}
+	};
+
 	const fetchUserData= async (userId) => {
 		try {
 			const docRef= doc(FirebaseDb, "users", userId);
@@ -32,20 +57,7 @@ export default function LoggIn() {
 		}
 	};
 
-	const handleLogIn = async (event) => {
-		event.preventDefault();
-		try{
-			const userCredential =await signInWithEmailAndPassword(auth, emailAddress, password);
-			const user = userCredential.user;
-            console.log('User logged in successfully');
-			console.log('user id', user.uid);
-			nav('/')
-		    await fetchUserData(user.uid);
-			
-		}catch(error){
-			console.log(error.message);
-		}
-	};
+
 	return (
 		<div className='login-container'>
 			<h2>Login here</h2>

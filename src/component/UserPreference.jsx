@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { FirebaseDb, auth } from "../firebaseConfig";
 import { useAuthen } from "../context/AuthenContex";
+import { useNavigate } from "react-router-dom";
 
 const UserPreference = ({ onSave }) => {
   const { uuser } = useAuthen();
@@ -13,6 +14,8 @@ const UserPreference = ({ onSave }) => {
   const [hotThreshold, setHotThreshold] = useState("");
   const [notifyRain, setNotifyRain] = useState(false);
   const [time, setTime] = useState("");
+  const nav = useNavigate();
+
 
   // Set form fields with the values from uuser when the component mounts or uuser changes
   useEffect(() => {
@@ -51,6 +54,7 @@ const UserPreference = ({ onSave }) => {
         { merge: true }
       );
       console.log("User preferences updated successfully!");
+      nav('/')
       if (onSave) onSave(); // Call onSave if provided
     } catch (error) {
       console.error("Error while updating user preferences:", error);

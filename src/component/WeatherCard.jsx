@@ -11,7 +11,7 @@ function WeatherCard() {
   const [currWeather, setCurrWeather] = useState(null);
   const [hourlyWeather, setHourlyWeather] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Berlin");
-  const [isHourlyVisible, setIsHourlyVisible] = useState(true);
+  const [isHourlyVisible, setIsHourlyVisible] = useState(false);
   const weatherAPIKey = import.meta.env.VITE_FIREBASE_weather_API_Key;
 
   const toggleHourlyVisibility = () => {
@@ -21,6 +21,7 @@ function WeatherCard() {
   useEffect(() => {
     const getCurrWeather = async () => {
       const url = `http://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${selectedCity}&aqi=no`;
+      console.log("selectedCity", selectedCity);
 
       try {
         const response = await axios.get(url);
@@ -54,11 +55,11 @@ function WeatherCard() {
   return (
     <>
       <CitySearch setSelectedCity={setSelectedCity} />
-      <div className="hour-card-container">
+      <div className="forcasting-container">
         <div className="card-container">
           <div className="time-container">
             <div>
-              <p>CURRENT WEATHER</p>
+              <p>Current Weather</p>
               <p>
                 {currWeather.location.name}, {currWeather.location.country}
               </p>
@@ -89,22 +90,22 @@ function WeatherCard() {
               </div>
             </div>
             <div className="details">
-              <br />
+             
               <p>
                 Wind: {currWeather.current.wind_dir}{" "}
                 {currWeather.current.wind_mph} mph
               </p>
               <hr />
-              <br />
+            
               <p>UV: Index {currWeather.current.uv}</p>
               <hr />
-              <br />
+              
               <p>Humidity: {currWeather.current.humidity}%</p>
               <hr />
-              <br />
+             
               <p>Pressure: {currWeather.current.pressure_mb} mbar</p>
               <hr />
-              <br />
+             
               <p>Cloud Cover: {currWeather.current.cloud} %</p>
             </div>
           </div>
@@ -113,7 +114,7 @@ function WeatherCard() {
 
       <div className="toggle-button" onClick={toggleHourlyVisibility}>
       <h2>Hourly Weather for {selectedCity}</h2>
-      {isHourlyVisible ? <IoIosArrowDropup size={25} color="white"/> : <IoIosArrowDropdown size={25} color="white"/>}
+      {isHourlyVisible ? <IoIosArrowDropup size={30} color="white"/> : <IoIosArrowDropdown size={30} color="white"/>}
       </div>
    
 

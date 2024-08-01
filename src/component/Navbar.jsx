@@ -6,6 +6,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useAuthen } from "../context/AuthenContex";
 import { TbRuler } from "react-icons/tb";
 import { auth } from "../firebaseConfig";
+import logo from "../assets/weather-watcher-logo-transparent.png"
 
 const Navbar = () => {
   const { uuser, setUuser } = useAuthen();
@@ -60,7 +61,7 @@ const Navbar = () => {
   return (
     <div className={navbarColor ? " header header-bg" : "header"}>
       <Link to={"/"}>
-        <h2>Weather Watcher</h2>
+      <img src={logo} alt="" />
       </Link>
       <ul className={clickNav ? "nav-menue active" : "nav-menue"}>
         <li>

@@ -16,6 +16,9 @@
     text-decoration: none;
     list-style-type: none;
   }
+  & img {
+    width: 300px;
+  }
 }
 .header-bg{
   background-color: rgba(1, 5, 8, 0.85);
@@ -113,6 +116,12 @@
   & li {
     padding: 1rem 0;
     font-size: 1rem;
+  }
+
+}
+.header {
+  & img {
+    width: 200px;
   }
 }
 .nav-menue.active{

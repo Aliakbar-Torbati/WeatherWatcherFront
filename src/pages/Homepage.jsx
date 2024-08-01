@@ -46,7 +46,6 @@ const Homepage = () => {
       <div className="homepage">
         <WeatherCard />
       </div>
-      {/* <WeatherCardHourly /> */}
       <Footer />
     </div>
   );

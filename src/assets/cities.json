@@ -1,6 +1,6 @@
 [
-  { "name": "Berlin", "country": "Germany" },
   { "name": "Hamburg", "country": "Germany" },
+  { "name": "Berlin", "country": "Germany" },
   { "name": "Munich", "country": "Germany" },
   { "name": "Cologne", "country": "Germany" },
   { "name": "Frankfurt", "country": "Germany" },

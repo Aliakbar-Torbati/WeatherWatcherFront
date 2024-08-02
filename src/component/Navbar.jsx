@@ -1,16 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./NavbarStyle.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useAuthen } from "../context/AuthenContex";
 import { TbRuler } from "react-icons/tb";
 import { auth } from "../firebaseConfig";
 import logo from "../assets/weather-watcher-logo-transparent.png"
+import Alert from './alertMessage/Alert';
 
 const Navbar = () => {
   const { uuser, setUuser } = useAuthen();
   const dropdownRef = useRef(null);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const nav = useNavigate();
+
 
   // make a responsive and collapsible navbar
   const [clickNav, setClickNav] = useState(false);
@@ -52,14 +57,38 @@ const Navbar = () => {
     try {
       await auth.signOut();
       console.log("user logged out successfully");
-      nav("/");
+      setAlertMessage("You Logged out successfully!");
+      setShowAlert(true);
+	    console.log('showAlert',showAlert);
+
+      setTimeout(() => {
+        nav('/');
+      }, 2000);
+
+      
     } catch (error) {
       console.log("error while logging out");
     }
   };
 
+  useEffect(() => {
+    if (showAlert) {
+	  console.log('showAlert',showAlert);
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+
+    }
+  }, [showAlert]);
+
+  useEffect(() => {
+    console.log('showAlert changed:', showAlert);
+  }, [showAlert]);
+
   return (
     <div className={navbarColor ? " header header-bg" : "header"}>
+      {showAlert && <Alert message={alertMessage} />}
       <Link to={"/"}>
       <img src={logo} alt="" />
       </Link>

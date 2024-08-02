@@ -113,8 +113,8 @@ function WeatherCard() {
       </div>
 
       <div className="toggle-button" onClick={toggleHourlyVisibility}>
-      <h2>Hourly Weather for {selectedCity}</h2>
-      {isHourlyVisible ? <IoIosArrowDropup size={30} color="white"/> : <IoIosArrowDropdown size={30} color="white"/>}
+      <h2>Hourly Weather Condition in {selectedCity}</h2>
+      {isHourlyVisible ? <IoIosArrowDropup size={50} color="white"/> : <IoIosArrowDropdown size={50} color="white"/>}
       </div>
    
 

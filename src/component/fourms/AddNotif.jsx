@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { FirebaseDb, auth } from "../../firebaseConfig";
 import { useAuthen } from "../../context/AuthenContex";
+import Alert from '../alertMessage/Alert';
+
 
 const AddNotif = ({ onSave }) => {
   const { uuser } = useAuthen();
@@ -13,6 +15,8 @@ const AddNotif = ({ onSave }) => {
   const [hotThreshold, setHotThreshold] = useState("");
   const [notifyRain, setNotifyRain] = useState(false);
   const [time, setTime] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   // Set form fields with the values from uuser when the component mounts or uuser changes
   useEffect(() => {
@@ -28,6 +32,8 @@ const AddNotif = ({ onSave }) => {
   }, [uuser]);
 
   const handleUpdate = async (e) => {
+
+
     e.preventDefault();
 
     // Validate inputs (e.g., ensure city is not empty)
@@ -38,6 +44,7 @@ const AddNotif = ({ onSave }) => {
 
     // Save the updated preferences to the database
     try {
+      if (uuser) {
       const userId = auth.currentUser.uid;
       await setDoc(
         doc(FirebaseDb, "users", userId),
@@ -52,13 +59,29 @@ const AddNotif = ({ onSave }) => {
       );
       console.log("User preferences updated successfully!");
       if (onSave) onSave(); // Call onSave if provided
+    }else{
+      console.log("User is not loggedin");
+        setAlertMessage("You should login first to set notification!");
+        setShowAlert(true);
+      }
     } catch (error) {
       console.error("Error while updating user preferences:", error);
     }
   };
 
+  useEffect(() => {
+    if (showAlert) {
+	  console.log('showAlert',showAlert);
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+
+    }
+  }, [showAlert]);
   return (
     <div className="user-preference-container">
+      {showAlert && <Alert message={alertMessage} />}
       <h2>Set Notification here</h2>
       <form onSubmit={handleUpdate}>
         <div>

@@ -1,5 +1,5 @@
 import './LogInStyle.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../../App";
@@ -9,6 +9,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useToken } from "../../context/TokenContext";
 import { useAuthen } from "../../context/AuthenContex";
+import Alert from '../alertMessage/Alert';
 
 
 export default function SignUp() {
@@ -26,6 +27,8 @@ export default function SignUp() {
 	const [hotThreshold, setHotThreshold] = useState('');
 	const [notifyRain, setNotifyRain] = useState(false);
 	const [time, setTime] = useState('');
+	const [showAlert, setShowAlert] = useState(false);
+	const [alertMessage, setAlertMessage] = useState("");
 
 	const nav = useNavigate();
 
@@ -56,19 +59,45 @@ export default function SignUp() {
 					time: time
 				})
 			}
-			nav("/");
+			setAlertMessage("You Registered successfully!");
+			setShowAlert(true);
+			  console.log('showAlert',showAlert);
+
+			  setTimeout(() => {
+				nav('/');
+			  }, 3000);
+
 		} catch (error){
 			console.log(error.message);
 			toast.error(error.message, {position:'bottom-center'})
 
 		}
 
-		if (user){
-			nav('/dashboard')
+		if (uuser){
+				setTimeout(() => {
+				nav('/');
+			  }, 3000);
 		}
 	};
+
+	useEffect(() => {
+		if (showAlert) {
+		  console.log('showAlert',showAlert);
+		  const timer = setTimeout(() => {
+			setShowAlert(false);
+		  }, 2000);
+		  return () => clearTimeout(timer);
+	
+		}
+	  }, [showAlert]);
+	
+	  useEffect(() => {
+		console.log('showAlert changed:', showAlert);
+	  }, [showAlert]);
+
 	return (
 		<div className='login-container'>
+			{showAlert && <Alert message={alertMessage} />}
 			<h2>Signup with us</h2>
 			<form onSubmit={handleSignup} className="signup-form">
 			<input

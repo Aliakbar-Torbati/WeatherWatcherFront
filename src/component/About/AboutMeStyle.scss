@@ -1,4 +1,5 @@
 /* AboutMeStyle.scss */
+
 .hiddenn {
     opacity: 0;
     transform: translateY(50px);
@@ -20,7 +21,13 @@
     padding: 20px;
     height: 1000px;
   }
-  
+  .about-container{
+    h2{
+      color: rgb(255, 255, 255);
+      text-shadow: 2px 3px #852222;
+      
+    }
+  }
   .scroll-div {
     color: white;
     max-width: 500px;

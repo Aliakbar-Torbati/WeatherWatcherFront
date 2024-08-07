@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AboutMeStyle.scss';
 
+
 function AboutFeature() {
   const [isVisible, setIsVisible] = useState(0);
 
@@ -24,7 +25,7 @@ function AboutFeature() {
 
   const hiddenStyle = {
     opacity: 0,
-    transform: 'translateY(50px)',
+    transform: 'translateY(-50px)',
     transition: 'opacity 1s ease-out, transform 1s ease-out',
   };
   const visibleStyle1 = {
@@ -56,6 +57,17 @@ function AboutFeature() {
           simplicity, and responsiveness in mind. It ensures a seamless experience
           on any device.
         </p>
+        <p>
+        Key Features: User Registration & Authentication: Securely register,
+        sign in, and sign out using Firebase Authentication. Personalized
+        Weather Alerts: Set your preferred conditions and get notified every day
+        at your chosen time. Technologies Used: HTML & SCSS: For structuring and
+        styling the app. React & Vite: For building a fast and interactive user
+        interface. Firebase: Leveraging Firebase Authentication, Firestore
+        Database, and Firebase Messaging for seamless data management and
+        real-time notifications. Stay prepared and never be surprised by the
+        weather again with Weather Watcher!
+      </p>
       </div>
     </div>
   );

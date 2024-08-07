@@ -12,7 +12,11 @@
     margin: 10px;
   }
 }
-
+.about-container{
+  h2{
+    color: aliceblue;
+  }
+}
 .introContainer2 ::before {
   content: "";
   background: url("https://images.unsplash.com/photo-1488034976201-ffbaa99cbf5c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D");

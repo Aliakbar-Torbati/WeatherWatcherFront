@@ -27,7 +27,7 @@ const Intro = () => {
       <div className="introContent">
         <h1>Weather Watcher Application</h1>
         <p className="hhidden">
-        Stay informed with current weather conditions, hourly updates
+        Stay informed with current weather conditions and hourly updates
         </p>
         <p className="hhidden">
         never surprised by severe weather conditions by getting notification.

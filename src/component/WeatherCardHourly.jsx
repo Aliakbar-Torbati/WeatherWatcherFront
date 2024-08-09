@@ -37,7 +37,7 @@ function WeatherCardHourly() {
 
 <CitySearch setSelectedCity={setSelectedCity} />
 <UserPreference onSave={handleSavePreferences} />
-<h1>Hourly Weather for {selectedCity}</h1>
+<h2>Hourly Weather for {selectedCity}</h2>
 
       <div className="hour-card-container">
         {hourlyWeather.map((hourWeather, i) => {

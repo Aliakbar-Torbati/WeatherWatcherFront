@@ -1,7 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./IntroStyle.scss";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 const Intro = () => {
+  const [isVisible, setIsVisible] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(1);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  const hiddenStyle = {
+    opacity: 0,
+    transform: "translateY(-50px)",
+    transition: "opacity 1s ease-out, transform 1s ease-out",
+  };
+  const visibleStyle = {
+    opacity: 1,
+    transform: "translateY(0)",
+    transition: "opacity 1s ease-out, transform 1s ease-out",
+  };
+
   useEffect(() => {
     const paragraphs = document.querySelectorAll(".introContent p");
     paragraphs.forEach((paragraph, index) => {
@@ -27,29 +48,35 @@ const Intro = () => {
       <div className="introContent">
         <h1>Weather Watcher Application</h1>
         <p className="hhidden">
-        Stay informed with current weather conditions and hourly updates
+          Stay informed with current weather conditions and hourly updates
         </p>
         <p className="hhidden">
-        never surprised by severe weather conditions by getting notification.
+          never surprised by severe weather conditions by getting notification.
         </p>
 
-        {/* <p className="hhidden">
-          Weather Watcher is your go-to app for real-time weather updates and
-          forecasts.
-        </p>
-        <p className="hhidden">
-          Stay informed with current weather conditions, hourly updates, and
-          severe weather alerts.
-        </p>
-        <p className="hhidden">
-          Set your custom weather condition thresholds and receive daily
-          notifications at your preferred time.
-        </p>
-        <p className="hhidden">
-          Experience a user-friendly interface designed to ensure you are never
-          surprised by severe weather conditions.
-        </p>
-        */}
+        <div>
+          <div style={isVisible === 1 ? visibleStyle : hiddenStyle}>
+            <IoIosArrowDropdown
+              size={20}
+              style={{ margin: 20, color: "#fff" }}
+            />
+          </div>
+          <br />
+          <div style={isVisible === 1 ? visibleStyle : hiddenStyle}>
+            <IoIosArrowDropdown
+              size={25}
+              style={{ margin: 20, color: "#fff" }}
+            />
+          </div>
+          <br />
+          <div style={isVisible === 1 ? visibleStyle : hiddenStyle}>
+            <IoIosArrowDropdown
+              size={30}
+              style={{ margin: 20, color: "#fff" }}
+            />
+          </div>
+          
+        </div>
       </div>
     </div>
   );

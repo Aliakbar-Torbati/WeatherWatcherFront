@@ -12,8 +12,7 @@ function WeatherCard() {
   const [hourlyWeather, setHourlyWeather] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Berlin");
   const [isHourlyVisible, setIsHourlyVisible] = useState(false);
-  // const weatherAPIKey = import.meta.env.VITE_FIREBASE_weather_API_Key;
-  const weatherAPIKey = "067d7ae315bc4d26a71213558242507";
+  const weatherAPIKey = import.meta.env.VITE_FIREBASE_weather_API_Key;
 
   const toggleHourlyVisibility = () => {
     setIsHourlyVisible(!isHourlyVisible);
@@ -21,7 +20,7 @@ function WeatherCard() {
 
   useEffect(() => {
     const getCurrWeather = async () => {
-      const url = `http://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${selectedCity}&aqi=no`;
+      const url = `https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${selectedCity}&aqi=no`;
       console.log("selectedCity", selectedCity);
 
       try {
@@ -33,7 +32,7 @@ function WeatherCard() {
       }
     };
     const getHourlyWeather = async () => {
-      const url = `http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIKey}&q=${selectedCity}&aqi=no`;
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=${weatherAPIKey}&q=${selectedCity}&aqi=no`;
       try {
         const response = await axios.get(url);
         console.log(

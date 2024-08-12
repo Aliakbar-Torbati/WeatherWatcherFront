@@ -90,6 +90,15 @@
     justify-content: space-between;
     & p{
       width: 95%;
+      font-size: 1.1rem;
+
+    }
+    & li{
+      border: 1px solid rgb(97, 87, 68);
+      margin: 3px;
+      padding: 3px;
+      border-radius: 5px;
+      font-size: 1rem;
     }
   }
 }

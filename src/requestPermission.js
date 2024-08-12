@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useToken } from "./context/TokenContext.jsx";
 import { messaging, getToken } from "./firebaseConfig.js";
 
-const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+// const VAPID_KEY = import.meta.env.VITE_FIREBASE_VAPID_KEY;
+const VAPID_KEY = "BOkM-C7kycoEB3L4ieJMyA_Qr9XZ7xDvYbmTSZ7atgL4sDO2NFk-KGMHxU1hdjhA1cklUZkKd9R5ShdytauZSXA";
 
 const requestPermission = () => {
   const { setToken } = useToken();

@@ -6,7 +6,6 @@ import { API_URL } from "../../App";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth , FirebaseDb } from "../../firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
 import { useToken } from "../../context/TokenContext";
 import { useAuthen } from "../../context/AuthenContex";
 import Alert from '../alertMessage/Alert';
@@ -69,8 +68,6 @@ export default function SignUp() {
 
 		} catch (error){
 			console.log(error.message);
-			toast.error(error.message, {position:'bottom-center'})
-
 		}
 
 		if (uuser){

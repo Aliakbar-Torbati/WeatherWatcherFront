@@ -10,10 +10,9 @@ import requestPermission from "./requestPermission";
 import React, { useEffect } from "react";
 import { useToken } from "./context/TokenContext";
 import { ToastContainer } from "react-toastify";
-import Dashboard from "./component/Dashboard";
+// import Dashboard from "./component/Dashboard";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Profile from "./pages/Profile";
-import Projects from "./pages/Projects";
 import LogInPage from "./pages/LogInPage";
 import SignUpPage from "./pages/SignUpPage";
 
@@ -28,12 +27,10 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-      <Route path="/projects" element={<Projects />} />
 
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />

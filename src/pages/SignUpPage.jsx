@@ -1,5 +1,5 @@
-import Navbar from '../component/Navbar'
-import Footer from '../component/Footer'
+import Navbar from '../component/navbar/Navbar'
+import Footer from '../component/footer/Footer'
 import Intro2 from '../component/Intro2'
 import { useAuthen } from "../context/AuthenContex";
 import SignUp from '../component/fourms/SignUp';

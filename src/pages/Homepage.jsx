@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../component/Navbar";
+import Navbar from "../component/navbar/Navbar";
 import Intro from "../component/Intro";
-import Footer from "../component/Footer";
+import Footer from "../component/footer/Footer";
 import WeatherCard from "../component/WeatherCard";
 import WeatherCardHourly from "../component/WeatherCardHourly";
 import CitySearch from "../component/CitySearch";
@@ -18,7 +18,6 @@ const Homepage = () => {
   const { setIsPrefrenceFormVisible } = useAuthen();
   console.log("isPrefernceFormVisible", isPrefernceFormVisible);
   
-
   const toggleFormVisibility = () => {
     setIsPrefrenceFormVisible(!isPrefernceFormVisible);
   };

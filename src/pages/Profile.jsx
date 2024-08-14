@@ -1,7 +1,6 @@
 import Navbar from '../component/Navbar'
 import Footer from '../component/Footer'
 import Intro2 from '../component/Intro2'
-import { useAuthen } from "../context/AuthenContex";
 import UserPreference from '../component/UserPreference';
 
 

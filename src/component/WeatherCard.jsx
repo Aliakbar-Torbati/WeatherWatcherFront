@@ -118,7 +118,7 @@ function WeatherCard() {
    
 
       <div
-        className={`hour-card-container ${
+        className={`${
           isHourlyVisible ? "visible" : "hidden"
         }`}
       >

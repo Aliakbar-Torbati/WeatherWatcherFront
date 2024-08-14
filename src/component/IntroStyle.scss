@@ -1,6 +1,6 @@
 .introClass {
   width: 100%;
-  height: 120vh;
+  height: 140vh;
   position: static;
 }
 .introImg {
@@ -32,7 +32,7 @@
     top: 50%;
     left: 50%;
     text-align: center;
-    margin: 10px 0;
+    margin-top: 150px;
     & p{
       font-size: 1.4rem;
       font-weight: 200;
@@ -75,7 +75,7 @@
       top: 50%;
       left: 50%;
       text-align: center;
-      margin-top: 80px;
+      margin-top: 150px;
     }
   }
 }
@@ -97,7 +97,7 @@
       top: 50%;
       left: 50%;
       text-align: center;
-      margin: 120px 0;
+      margin: 150px 0;
     }
   }
 }

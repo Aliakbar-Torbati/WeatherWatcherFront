@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import t03d from "../assets/t03d.png";
 import { BsDroplet } from "react-icons/bs";
 import "./WeatherCardStyle.scss";
 import CitySearch from "./CitySearch";
@@ -13,8 +12,6 @@ function WeatherCard() {
   const [selectedCity, setSelectedCity] = useState("Berlin");
   const [isHourlyVisible, setIsHourlyVisible] = useState(false);
   const weatherAPIKey = import.meta.env.VITE_FIREBASE_weather_API_Key;
-  // const weatherAPIKey = "067d7ae315bc4d26a71213558242507";
-
 
   const toggleHourlyVisibility = () => {
     setIsHourlyVisible(!isHourlyVisible);

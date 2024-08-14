@@ -5,7 +5,6 @@ import { FirebaseDb, auth } from "../../firebaseConfig";
 import { useAuthen } from "../../context/AuthenContex";
 import Alert from '../alertMessage/Alert';
 
-
 const AddNotif = ({ onSave }) => {
   const { uuser } = useAuthen();
   const [email, setEmail] = useState("");
@@ -17,6 +16,9 @@ const AddNotif = ({ onSave }) => {
   const [time, setTime] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const { isPrefernceFormVisible } = useAuthen();
+  const { setIsPrefrenceFormVisible } = useAuthen();
+  console.log("isPrefernceFormVisible", isPrefernceFormVisible);
 
   // Set form fields with the values from uuser when the component mounts or uuser changes
   useEffect(() => {
@@ -32,9 +34,9 @@ const AddNotif = ({ onSave }) => {
   }, [uuser]);
 
   const handleUpdate = async (e) => {
-
-
     e.preventDefault();
+    // close the form after saving data
+    setIsPrefrenceFormVisible(!isPrefernceFormVisible);
 
     // Validate inputs (e.g., ensure city is not empty)
     if (city.trim() === "") {

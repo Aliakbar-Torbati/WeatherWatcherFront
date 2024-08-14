@@ -6,21 +6,19 @@ import WeatherCard from "../component/WeatherCard";
 import WeatherCardHourly from "../component/WeatherCardHourly";
 import CitySearch from "../component/CitySearch";
 import UserPreference from "../component/UserPreference";
-import { useToken } from "../context/TokenContext";
 import { useAuthen } from "../context/AuthenContex";
-import requestPermission from "../requestPermission";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { TbEyePlus } from "react-icons/tb";
-
 import "../component/WeatherCardStyle.scss";
 import AddNotif from "../component/fourms/AddNotif";
 
 const Homepage = () => {
-  const { token } = useToken();
-  const { uuser } = useAuthen();
-  console.log("homepage user", uuser);
-  console.log("homepage token", token);
-  const [isPrefernceFormVisible, setIsPrefrenceFormVisible] = useState(false);
+  
+  // hide or show prefrence form
+  const { isPrefernceFormVisible } = useAuthen();
+  const { setIsPrefrenceFormVisible } = useAuthen();
+  console.log("isPrefernceFormVisible", isPrefernceFormVisible);
+  
+
   const toggleFormVisibility = () => {
     setIsPrefrenceFormVisible(!isPrefernceFormVisible);
   };

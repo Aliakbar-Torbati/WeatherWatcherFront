@@ -8,6 +8,8 @@ export const useAuthen = () => useContext(AuthenContext);
 
 export const AuthenProvider = ({ children }) => {
     const [uuser, setUuser] = useState(null);
+    const [isPrefernceFormVisible, setIsPrefrenceFormVisible] = useState(false);
+
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
@@ -28,7 +30,7 @@ export const AuthenProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthenContext.Provider value={{ uuser: uuser, setUuser: setUuser }}>
+        <AuthenContext.Provider value={{ uuser: uuser, setUuser: setUuser, isPrefernceFormVisible: isPrefernceFormVisible, setIsPrefrenceFormVisible: setIsPrefrenceFormVisible }}>
             {children}
         </AuthenContext.Provider>
     );

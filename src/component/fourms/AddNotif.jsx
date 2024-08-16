@@ -7,6 +7,8 @@ import Alert from '../alertMessage/Alert';
 
 const AddNotif = ({ onSave }) => {
   const { uuser } = useAuthen();
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [city, setCity] = useState("");
   const [coldThreshold, setColdThreshold] = useState("");
   const [hotThreshold, setHotThreshold] = useState("");

@@ -1,4 +1,5 @@
 About Weather Watcher
+
 Weather Watcher is a comprehensive weather application designed to provide users with real-time weather updates and forecasts. The app features include:
 
 City Search: Easily search for your city and get current weather conditions.
@@ -8,7 +9,9 @@ Custom Alerts: Set temperature thresholds and receive daily notifications at you
 Severe Weather Notifications: Stay informed with timely alerts about severe weather conditions.
 Our app offers a user-friendly, simple, and responsive design, ensuring a seamless experience on all devices.
 
+
 Key Functionalities:
+
 User Authentication: Register and sign in/out securely with Firebase Authentication.
 Personalized Notifications: Customize your weather alerts and receive notifications daily.
 Technologies:

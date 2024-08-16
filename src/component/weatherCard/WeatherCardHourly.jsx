@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import t03d from "../assets/t03d.png";
+import t03d from "../../assets/t03d.png";
 import { BsDroplet } from "react-icons/bs";
 import "./WeatherCardStyle.scss";
 import CitySearch from "./CitySearch";
-import UserPreference from "./UserPreference";
+import UserPreference from "../UserPreference";
 
 function WeatherCardHourly() {
    const [hourlyWeather, setHourlyWeather] = useState([]);

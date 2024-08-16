@@ -1,14 +1,12 @@
 import "./AddNotifStyle.scss";
 import { useState, useEffect } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { FirebaseDb, auth } from "../../firebaseConfig";
 import { useAuthen } from "../../context/AuthenContex";
 import Alert from '../alertMessage/Alert';
 
 const AddNotif = ({ onSave }) => {
   const { uuser } = useAuthen();
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [city, setCity] = useState("");
   const [coldThreshold, setColdThreshold] = useState("");
   const [hotThreshold, setHotThreshold] = useState("");

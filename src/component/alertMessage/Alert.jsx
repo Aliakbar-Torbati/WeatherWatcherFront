@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import './AlertStyle.scss';
 
 const Alert = ({ message }) => {

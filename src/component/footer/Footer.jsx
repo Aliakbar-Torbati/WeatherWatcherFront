@@ -1,6 +1,5 @@
 import "./FooterStyle.scss";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (

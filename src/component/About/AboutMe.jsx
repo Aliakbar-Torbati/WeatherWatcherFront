@@ -1,6 +1,5 @@
 import "./AboutMeStyle.scss";
 import React, { useEffect, useState } from "react";
-import { RiArrowDownCircleFill2 } from "react-icons/ri";
 import { IoIosArrowDropdown } from "react-icons/io";
 
 function AboutMe() {

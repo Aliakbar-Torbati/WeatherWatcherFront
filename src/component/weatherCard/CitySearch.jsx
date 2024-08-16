@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import cities from '../assets/cities.json';
+import cities from '../../assets/cities.json';
 import "./CitySearchStyle.scss";
 
 

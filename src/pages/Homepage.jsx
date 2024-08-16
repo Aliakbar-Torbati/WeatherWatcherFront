@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
 import Navbar from "../component/navbar/Navbar";
-import Intro from "../component/Intro";
+import Intro from "../component/intro components/Intro";
 import Footer from "../component/footer/Footer";
-import WeatherCard from "../component/WeatherCard";
-import WeatherCardHourly from "../component/WeatherCardHourly";
-import CitySearch from "../component/CitySearch";
-import UserPreference from "../component/UserPreference";
+import WeatherCard from "../component/weatherCard/WeatherCard";
 import { useAuthen } from "../context/AuthenContex";
 import { TbEyePlus } from "react-icons/tb";
-import "../component/WeatherCardStyle.scss";
+import "../component/weatherCard/WeatherCardStyle.scss";
 import AddNotif from "../component/fourms/AddNotif";
 
 const Homepage = () => {

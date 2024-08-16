@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useAuthen } from "../../context/AuthenContex";
-import { TbRuler } from "react-icons/tb";
 import { auth } from "../../firebaseConfig";
 import logo from "../../assets/weather-watcher-logo-transparent.png"
 import Alert from '../alertMessage/Alert';

@@ -1,8 +1,6 @@
 import './LogInStyle.scss'
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { API_URL } from "../../App";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth , FirebaseDb } from "../../firebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
